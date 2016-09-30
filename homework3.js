@@ -17,13 +17,19 @@ player.showHighScoreList = function(pageToken) {
                 return;
             }
             var root = document.getElementById('highScoreListDiv');
+            //////////////////////////////
+            /// Шов 4 createPlayerList ///
             player.createPlayerList(root, response.items, true);
+            //////////////////////////////
             if (response.prevPageToken) {
                 root.appendChild(
+                    /////////////////////////////////
+                    /// Шов 5 createButton        ///
                     utilities.createButton('Prev', response.prevPageToken,
                         function(event) {
                             player.showHighScoreList(event.target.value);
                         }));
+                    /////////////////////////////////
             }
             if (response.nextPageToken) {
                 root.appendChild(

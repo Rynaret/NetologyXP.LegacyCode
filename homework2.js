@@ -15,8 +15,10 @@ function formSetEditReport(idReport) {
     else {
         $('#report_submit').val(ReportPlugin.createReportString);
     }
-
+    //////////////////////////////
+    /// Шов 2 toggleReportType ///
     toggleReportType(report.type);
+    //////////////////////////////
 
     $('#report_description').html(report.description);
     $('#report_segment').find('option[value=' + report.idsegment + ']').prop('selected', 'selected');
@@ -31,8 +33,10 @@ function formSetEditReport(idReport) {
     for (key in report.reports) {
         $('.' + report.type + ' [report-unique-id=' + report.reports[key] + ']').prop('checked', 'checked');
     }
-
+    ////////////////////////////////////////////
+    /// Шов 3 updateReportParametersFunctions///
     updateReportParametersFunctions[report.type](report.parameters);
+    ////////////////////////////////////////////
 
     $('#report_idreport').val(idReport);
 }
